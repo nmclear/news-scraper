@@ -2,6 +2,8 @@
 const express = require("express");
 const bodyParser = require("body-parser");
 const mongoose = require("mongoose");
+const request = require("request");
+const cheerio = require("cheerio");
 
 // MODELS
 const db = require("./models");
@@ -18,17 +20,21 @@ app.use(bodyParser.json());
 app.use(express.static("public"));
 
 // HANDLEBARS
-var exphbs = require("express-handlebars");
+const exphbs = require("express-handlebars");
 app.engine("handlebars", exphbs({ defaultLayout: "main" }));
 app.set("view engine", "handlebars");
 
 // DATABASE SELECTION
-const MONGODB_URI = process.env.MONGODB_URI || "mongodb://localhost/mongoHeadlines";
+const MONGODB_URI = process.env.MONGODB_URI || "mongodb://localhost/newsScraper";
 mongoose.Promise = Promise;
 mongoose.connect(MONGODB_URI);
 
 // ROUTES
 require("./routes/scraper-routes.js")(app);
+require("./routes/article-routes.js")(app);
+
+
+require("./routes/home-routes.js")(app);
 
 
 
