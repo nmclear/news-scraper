@@ -1,6 +1,39 @@
 <h1>Saved Articles</h1>
 
 <div class="containter">
+    
+
+    <div id="commentModal" class="modal">
+        <div class="modal-content">
+            <h4>Notes for Article: </h4>
+            <div>
+                <ul class="collection">
+                    {{#each dbArticle}}
+                        {{> comment}}
+                    {{/each}}
+                </ul>
+            </div>
+            <div class="row">
+                <form class="col s12">
+                    <div class="row">
+                        <div class="input-field col s12">
+                            <input id="newComment" type="text" class="validate">
+                            <label for="newComment">New Comment</label>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+        <div class="modal-footer">
+            <a class="modal-close waves-effect waves-green btn-flat">Close</a>
+            <a id="newCommentBtn" class="waves-effect waves-green btn-flat">Save Comment</a>
+        </div>
+    </div>
+
+
+
+
+
     {{#each dbArticle}}
         {{> saved-card}}
     {{/each}}

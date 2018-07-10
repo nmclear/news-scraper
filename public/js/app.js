@@ -1,9 +1,11 @@
-$(document).ready(function(){
+$(document).ready(() => {
 
 
 
     $('#scrapeBtn').on('click', scrapeArticles);
     $('.saveBtn').on('click', updateSave);
+    $('#newCommentBtn').on('click', newComment);
+    $('.commentBtn').on('click', viewComment);
 
     function scrapeArticles(){
         event.preventDefault();
@@ -23,4 +25,23 @@ $(document).ready(function(){
         })
     }
 
+    function newComment(){
+        event.preventDefault();
+        const id = $('.article-info').attr('data-id').trim();
+
+        const comment = {
+            body: $('#newComment').val().trim()
+        }
+
+        $.post(`/comment/${id}`, comment);
+        $('#newComment').val('');
+    }
+
+    function viewComment(){
+        // event.preventDefault();
+        console.log('hello');
+        const id = $('.article-info').attr('data-id').trim();
+        console.log('id: ' + id);
+        $.get(`/comment/${id}`)
+    }
 });

@@ -23,10 +23,10 @@ const ArticleSchema = new Schema({
   },
   // LINKS OBJECT ID TO COMMENT MODEL
   // POPULATE ARTICLE WITH ASSOCIATED COMMENTS
-  comment: {
+  comment: [{
     type: Schema.Types.ObjectId,
     ref: "Comment"
-  }
+  }]
 });
 
 // CREATE MONGOOSE MODEL
