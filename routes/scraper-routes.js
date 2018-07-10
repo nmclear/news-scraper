@@ -27,6 +27,10 @@ module.exports = app => {
     
                 db.Article.create(result).then(dbArticle => dbArticle)
                 .catch(err => res.json(err));
+           
+                // db.Article.update({headline: result.headline}, {$set: {headline: result.headline, link: result.link}}, {upsert: true})
+                // .then(dbArticle => dbArticle)
+                // .catch(err => res.json(err));
             });
         });
         res.send("Added New Articles. Visit /api/all to see data");

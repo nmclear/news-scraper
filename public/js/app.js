@@ -5,7 +5,7 @@ $(document).ready(() => {
     $('#scrapeBtn').on('click', scrapeArticles);
     $('.saveBtn').on('click', updateSave);
     $('#newCommentBtn').on('click', newComment);
-    $('.commentBtn').on('click', viewComment);
+    // $('.commentBtn').on('click', viewComment);
 
     function scrapeArticles(){
         event.preventDefault();
@@ -30,6 +30,8 @@ $(document).ready(() => {
         const id = $('.article-info').attr('data-id').trim();
 
         const comment = {
+            author: $('#newCommentAuthor').val().trim(),
+            title: $('#newCommentTitle').val().trim(),
             body: $('#newComment').val().trim()
         }
 
@@ -37,11 +39,11 @@ $(document).ready(() => {
         $('#newComment').val('');
     }
 
-    function viewComment(){
-        // event.preventDefault();
-        console.log('hello');
-        const id = $('.article-info').attr('data-id').trim();
-        console.log('id: ' + id);
-        $.get(`/comment/${id}`)
-    }
+    // function viewComment(){
+    //     // event.preventDefault();
+    //     console.log('hello');
+    //     const id = $('.article-info').attr('data-id').trim();
+    //     console.log('id: ' + id);
+    //     // $.get(`/comment/${id}`)
+    // }
 });
