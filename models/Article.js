@@ -17,6 +17,10 @@ const ArticleSchema = new Schema({
     type: String,
     required: true
   },
+  saved: {
+    type: Boolean,
+    default: false
+  },
   // LINKS OBJECT ID TO COMMENT MODEL
   // POPULATE ARTICLE WITH ASSOCIATED COMMENTS
   comment: {

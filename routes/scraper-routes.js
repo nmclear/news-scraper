@@ -16,7 +16,7 @@ module.exports = function(app){
     });
     
     app.get("/scraper", function(req, res) {
-        request("https://grow.acorns.com/", function(error, response, html) {
+        request("https://grow.acorns.com/news/", function(error, response, html) {
             const $ = cheerio.load(html);
         
             $("h3.article-description-cell").each(function(i, element) {
