@@ -45,18 +45,4 @@ module.exports = function(app){
             }
         })
     });
-
-
-    app.put("/saved/:id", function(req,res){
-        const id = req.params.id;
-        db.Article.update({"_id": id}, {$set:{"saved": true}}, function(error, data){
-            if (error) {
-                console.log(error);
-                return error;
-            } else {
-
-               console.log('Updated saved Worked');
-            }
-        })
-    })
 }
