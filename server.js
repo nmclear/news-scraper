@@ -33,6 +33,7 @@ mongoose.connect(MONGODB_URI);
 require("./routes/scraper-routes.js")(app);
 require("./routes/article-routes.js")(app);
 require("./routes/save-routes.js")(app);
+require("./routes/comment-routes.js")(app);
 
 
 require("./routes/home-routes.js")(app);

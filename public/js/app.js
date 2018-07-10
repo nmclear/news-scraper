@@ -3,9 +3,6 @@ $(document).ready(function(){
 
 
     $('#scrapeBtn').on('click', scrapeArticles);
-    // $('.saveBtn').on('click', saveArticle);
-    // $('.unsaveBtn').on('click', unsaveArticle);
-
     $('.saveBtn').on('click', updateSave);
 
     function scrapeArticles(){
@@ -13,24 +10,6 @@ $(document).ready(function(){
         $.get('/scraper');
     }
 
-    // function saveArticle(){
-    //     const id = $('.article-info').attr('data-id').trim();
-
-    //     event.preventDefault();
-    //     $.ajax({
-    //         method: 'PUT',
-    //         url: `/save/${id}`
-    //     })
-    // }
-
-    // function unsaveArticle(){
-    //     const id = $('.article-info').attr('data-id').trim();
-    //     event.preventDefault();
-    //     $.ajax({
-    //         method: 'PUT',
-    //         url: `/unsave/${id}`
-    //     })
-    // }
 
     function updateSave(){
         event.preventDefault();
